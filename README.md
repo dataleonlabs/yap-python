@@ -56,7 +56,7 @@ No contribution is too small – we encourage you to provide feedback and [repor
 
 ## Community support 🌍
 
-For general help using Yap, please refer to [the official Yap documentation](https://manual.youngapp.co/community/). For additional help, you can use one of these channels to ask a question:
+For general help using Yap, please refer to [the official Yap documentation](https://developer.youngapp.co/). For additional help, you can use one of these channels to ask a question:
 
 -   [StackOverflow](http://stackoverflow.com/questions/tagged/yap-python)
 -   [GitHub](https://github.com/youngapp/yap-python) (Bug reports, feature requests, contributions)
