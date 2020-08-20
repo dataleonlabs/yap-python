@@ -32,7 +32,7 @@ img2 = os.path.abspath('./resources/picture.png')
 with open(img1, 'rb') as document:
     imageBase641 = base64.b64encode(document.read())
 
-with open(img1, 'rb') as document:
+with open(img2, 'rb') as document:
     imageBase642 = base64.b64encode(document.read())
 
 response = service.compare_faces(content1=imageBase641, content2=imageBase642)
