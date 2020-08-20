@@ -14,6 +14,8 @@
 # limitations under the License.
 
 # content of test_sample.py
+from dotenv import load_dotenv
+load_dotenv()
 
 from yapsdk import Yap
 import io
@@ -23,8 +25,8 @@ import base64
 '''Extract content text'''
 def test_extract_text():
     service = Yap(
-        api_key='apkey_xxxxx',
-        endpoint='https://1pa1kqb479.execute-api.eu-west-3.amazonaws.com/dev'
+        api_key=os.environ['API_KEY'],
+        endpoint=os.environ['ENDPOINT']
     )
 
     img = os.path.abspath(

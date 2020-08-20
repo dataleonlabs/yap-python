@@ -16,6 +16,7 @@
 import requests
 import json
 
+
 class Yap:
     '''Constructor of class API'''
 
@@ -48,12 +49,72 @@ class Yap:
         )
         return json.loads(response.content)
 
-    '''Detects text in the input document. The input document must be an image in JPEG or PNG or PDF format.'''
+    '''Detects text in the input document with base64 image.'''
 
     def get_text(self, content):
         return self.make_request(
             path='/vision/text',
             payload={
                 'content': content.decode(),
+            }
+        )
+
+    ''' Detects lines in the input document with base64 image.'''
+    def get_lines(self, content):
+        return self.make_request(
+            path='/vision/lines',
+            payload={
+                'content': content.decode(),
+            }
+        )
+
+    ''' Detects tables in the input document with base64 image. '''
+    def get_tables(self, content):
+        return self.make_request(
+            path='/vision/tables',
+            payload={
+                'content': content.decode(),
+            }
+        )
+
+    ''' Inspects text for named entities, and returns information about them. '''
+
+    def get_entities(self, text, language=None):
+        return self.make_request(
+            path='/vision/entities',
+            payload={
+                'text': text,
+                'language': language,
+            }
+        )
+
+    ''' Determines the dominant language of the input text for a batch of documents. '''
+
+    def detect_dominant_language(self, text):
+        return self.make_request(
+            path='/vision/language-dominant',
+            payload={
+                'text': text,
+            }
+        )
+
+    ''' Provide the detect operation that looks for key facial features. '''
+
+    def detect_faces(self, content):
+        return self.make_request(
+            path='/vision/face-recognition',
+            payload={
+                'content': content.decode(),
+            }
+        )
+
+    ''' To compare a face in the source image with each face in the target image.'''
+
+    def compare_faces(self, content1, content2):
+        return self.make_request(
+            path='/vision/face-compare',
+            payload={
+                'content1': content1.decode(),
+                'content2': content2.decode(),
             }
         )
