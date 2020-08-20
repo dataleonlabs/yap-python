@@ -1,6 +1,5 @@
 # YAP Python Library
-The YAP Python library provides convenient access to the YAP API from
-applications written in the Python language.
+The YAP Python library provides convenient access to the YAP API from applications written in the Python language.
 
 ## Requirements
 -   Python 2.7+ or Python 3.4+ (PyPy supported)
@@ -14,6 +13,24 @@ pip install --upgrade yap-sdk
 ```
 
 Enjoy 🎉
+
+## Usage
+
+The library needs to be configured with your account's secret key which is
+available in your [YAP Dashboard][api-keys]. Set `yap.api_key` to its
+value:
+
+```python
+from yapsdk import Yap
+
+service = Yap(api_key="...")
+
+# detect entities on text
+response = service.get_entities(text=['Welcome to YAP Platform !'], language='en')
+
+# print that response
+print(response.entities)
+```
 
 ## Opening issues
 
