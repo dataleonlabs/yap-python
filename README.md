@@ -2,8 +2,6 @@
 The YAP Python library provides convenient access to the YAP API from
 applications written in the Python language.
 
-We love contributors, you can contribute or click ⭐️ (see above :arrow_upper_right:) to support us. Follow our news 🏅 on [Twitter](https://twitter.com/youngapp_pf) and [Slack](https://join.slack.com/t/yapcommunity/shared_invite/enQtOTA2NTcxNjc1OTI2LTA3YmNjMWRhY2E1NjdkODE2MjU4ZTcxZmU0ZmYyMzkyMDliYjM3Nzk4YzI1NTEzYjA1MjYxNWJlNGFlMjIzMDY).
-
 ## Requirements
 -   Python 2.7+ or Python 3.4+ (PyPy supported)
 
@@ -43,8 +41,7 @@ No contribution is too small – we encourage you to provide feedback and [repor
 
 For general help using Yap, please refer to [the official Yap documentation](https://manual.youngapp.co/community/). For additional help, you can use one of these channels to ask a question:
 
--   [StackOverflow](http://stackoverflow.com/questions/tagged/yap-vison)
--   [Slack](https://join.slack.com/t/yapcommunity/shared_invite/enQtOTA2NTcxNjc1OTI2LTA3YmNjMWRhY2E1NjdkODE2MjU4ZTcxZmU0ZmYyMzkyMDliYjM3Nzk4YzI1NTEzYjA1MjYxNWJlNGFlMjIzMDY) (Channel community)
+-   [StackOverflow](http://stackoverflow.com/questions/tagged/yap-python)
 -   [GitHub](https://github.com/youngapp/yap-python) (Bug reports, feature requests, contributions)
 -   [Twitter](https://twitter.com/youngapp_pf) (Get the news fast)
 -   [YouTube Channel](https://www.youtube.com/channel/UCPY1PeAXPQIgo29e4Z9u5cA) (Learn from Video Tutorials)

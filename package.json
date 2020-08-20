@@ -1,0 +1,34 @@
+{
+    "name": "yap-python",
+    "version": "1.0.0",
+    "description": "Young App Python SDK",
+    "parameters": "index.js",
+    "scripts": {
+        "release": "standard-version  --commit-all --release-as minor --git-tag-fallback false  -m 'chore(release): %s ' -m '[skip ci]'"
+    },
+    "standard-version": {
+        "scripts": {
+            "postbump": "git add package.json",
+            "precommit": "echo \"chore(release): [skip ci]\""
+        }
+    },
+    "hooks": {
+        "pre-commit": "npm test",
+        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+        "pre-push": "npx branch-name-lint branch-lint.json"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "author": "Gérard TOKO <gerard@youngapp.co> (http://www.youngapp.co/)",
+    "license": "ISC",
+    "devDependencies": {
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "branch-name-lint": "^1.3.0",
+        "husky": "^4.2.5",
+        "standard-version": "^6.0.1"
+    }
+}
