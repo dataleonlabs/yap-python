@@ -18,24 +18,24 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from yapsdk import Yap
-import io
 import os
 import base64
 
-'''Extract content text'''
-def test_extract_text():
-    service = Yap(
-        api_key=os.environ['API_KEY'],
-        endpoint=os.environ['ENDPOINT']
-    )
+service = Yap(api_key=os.environ['API_KEY'])
+# service = Yap(api_key=os.environ['API_KEY'], endpoint=os.environ['ENDPOINT'])
 
-    img = os.path.abspath(
-        './resources/invoice-template.png'
-    )
+img1 = os.path.abspath('./resources/id-card1.png')
+img2 = os.path.abspath('./resources/picture.png')
 
-    # Read document content
-    with open(img, 'rb') as document:
-        imageBase64 = base64.b64encode(document.read())
 
-    response = service.get_text(content=imageBase64)
-    assert ("INVOICE" in response["fulltext"]) == True
+# Read document content
+with open(img1, 'rb') as document:
+    imageBase641 = base64.b64encode(document.read())
+
+with open(img1, 'rb') as document:
+    imageBase642 = base64.b64encode(document.read())
+
+response = service.compare_faces(content1=imageBase641, content2=imageBase642)
+
+# print that response
+print(response["faces"])

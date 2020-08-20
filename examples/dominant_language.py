@@ -15,27 +15,17 @@
 
 # content of test_sample.py
 from dotenv import load_dotenv
+from yapsdk import Yap
+import os
+
 load_dotenv()
 
-from yapsdk import Yap
-import io
-import os
-import base64
+service = Yap(api_key=os.environ['API_KEY'])
+# service = Yap(api_key=os.environ['API_KEY'], endpoint=os.environ['ENDPOINT'])
 
-'''Extract content text'''
-def test_extract_text():
-    service = Yap(
-        api_key=os.environ['API_KEY'],
-        endpoint=os.environ['ENDPOINT']
-    )
+response = service.detect_dominant_language(
+    text=['Welcome to YAP Platform !']
+)
 
-    img = os.path.abspath(
-        './resources/invoice-template.png'
-    )
-
-    # Read document content
-    with open(img, 'rb') as document:
-        imageBase64 = base64.b64encode(document.read())
-
-    response = service.get_text(content=imageBase64)
-    assert ("INVOICE" in response["fulltext"]) == True
+# print that response
+print(response.result[0].lagnguges)
