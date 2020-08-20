@@ -23,13 +23,13 @@ value:
 ```python
 from yapsdk import Yap
 
-service = Yap(api_key="...")
+service = Yap(api_key='...')
 
-# detect entities on text
-response = service.get_entities(text=['Welcome to YAP Platform !'], language='en')
+# detect faces on document
+response = service.detect_faces(content='/9j/4AAQSkZJRgABAQEASABIA....')
 
 # print that response
-print(response.entities)
+print(response.faces)
 ```
 
 ## Opening issues
