@@ -1,10 +1,30 @@
+# coding: utf-8
+# (C) Copyright Young App Corp. 2016, 2020.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 from setuptools import setup, find_packages
 
+__version__ = '1.1.0'
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(
-    name="yap-sdk",
-    version="1.0.0",
+    name="yapsdk-youngapp",
+    version=__version__,
     description="Python bindings for the YAP API",
-    long_description="The YAP Python library provides convenient access to the YAP API from applications written in the Python language.",
+    long_description=long_description,
     long_description_content_type="text/x-rst",
     author="youngapp",
     author_email="support@youngapp.co",
