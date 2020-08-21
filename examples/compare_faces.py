@@ -44,14 +44,6 @@ print(response)
 # {
 #     "faces": [
 #         {
-#             "age": {
-#                 "low": 23,
-#                 "high": 35
-#             },
-#             "gender": {
-#                 "value": "female",
-#                 "confidence": 99.11945343017578
-#             },
 #             "bounding_box": {
 #                 "width": 0.4544285535812378,
 #                 "height": 0.4926297068595886,

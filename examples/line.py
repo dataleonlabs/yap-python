@@ -63,5 +63,5 @@ print(response)
 #     ],
 #     "width": 120,
 #     "height": 420,
-#     "fulltext": "string"
+#     "fulltext": ["string"]
 # }
