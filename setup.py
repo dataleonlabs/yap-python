@@ -21,7 +21,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="yapsdk-youngapp",
+    name="yapsdk",
     version=__version__,
     description="Python bindings for the YAP API",
     long_description=long_description,
