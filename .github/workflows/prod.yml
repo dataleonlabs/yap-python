@@ -27,7 +27,7 @@ jobs:
         echo ${{ secrets.API_KEY }} >> .env
         echo ${{ secrets.ENDPOINT }} >> .env
         pip install -r requirements.txt
-        pip install dotenv
+        sudo pip install python-dotenv
         pip install wheel
         pip install -U pytest
         pip install pytest
