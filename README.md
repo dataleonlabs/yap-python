@@ -35,7 +35,7 @@ print(response.faces)
 List of examples for quickly start on your project.
 
 | Features                  | File                                                                                                      |
-|--------------------------:|-----------------------------------------------------------------------------------------------------------|
+|---------------------------|-----------------------------------------------------------------------------------------------------------|
 | Extract text              | [text.py](https://github.com/youngapp/yap-python/blob/develop/examples/text.py)                           |
 | Extract lines             | [line.py](https://github.com/youngapp/yap-python/blob/develop/examples/line.py)                           |
 | Extract table             | [table.py](https://github.com/youngapp/yap-python/blob/develop/examples/table.py)                         |
