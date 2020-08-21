@@ -1,4 +1,4 @@
-name: prod
+name: dev
 
 on:
   push:
@@ -12,18 +12,26 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        python-version: [2.7, 3.6, 3.7, 3.8]
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        python-version: ${{ matrix.python-version }}
     - uses: actions/checkout@v1
     - name: Test
       run: |
+        touch .env
+        echo API_KEY=${{ secrets.API_KEY }} >> .env
+        echo \n >> .env
+        echo ENDPOINT=${{ secrets.ENDPOINT }} >> .env
         pip install -r requirements.txt
+        pip install python-dotenv
+        pip install wheel
+        pip install -U pytest
+        pip install pytest
         pytest
 
     - name: Slack Notification success

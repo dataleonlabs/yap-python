@@ -109,7 +109,7 @@ class Yap:
         if isinstance(text, list) == False:
             raise Exception('text argument must be list')
 
-        if isinstance(language, str) == False:
+        if (language is not None) and (isinstance(language, str) == False):
             raise Exception('language argument must be str')
 
         return self.make_request(

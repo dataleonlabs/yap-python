@@ -15,7 +15,7 @@
 
 from setuptools import setup, find_packages
 
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -25,9 +25,9 @@ setup(
     version=__version__,
     description="Python bindings for the YAP API",
     long_description=long_description,
-    long_description_content_type="text/x-rst",
+    long_description_content_type="text/markdown",
     author="youngapp",
-    author_email="support@youngapp.co",
+    author_email="gerardtoko@youngapp.co",
     url="https://github.com/youngapp/yap-python",
     license="MIT",
     keywords="youngapp api machine learning ocr",
@@ -37,7 +37,7 @@ setup(
         'requests >= 2.20; python_version >= "3.0"',
         'requests[security] >= 2.20; python_version < "3.0"',
     ],
-    python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+    python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*",
     project_urls={
         "Bug Tracker": "https://github.com/youngapp/yap-python/issues",
         "Documentation": "https://developer.youngapp.co",
@@ -52,10 +52,9 @@ setup(
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],

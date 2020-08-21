@@ -2,7 +2,7 @@
 The YAP Python library provides convenient access to the YAP API from applications written in the Python language.
 
 ## Requirements
--   Python 2.7+ or Python 3.4+ (PyPy supported)
+-   Python 2.7+ or Python 3.6+
 
 ## Installing
 
@@ -30,6 +30,19 @@ response = service.detect_faces(content='/9j/4AAQSkZJRgABAQEASABIA....')
 # print that response
 print(response.faces)
 ```
+
+## Example
+List of examples for quickly start on your project.
+
+| Features                  | File                                                                                                      |
+|---------------------------|-----------------------------------------------------------------------------------------------------------|
+| Extract text              | [text.py](https://github.com/youngapp/yap-python/blob/develop/examples/text.py)                           |
+| Extract lines             | [line.py](https://github.com/youngapp/yap-python/blob/develop/examples/line.py)                           |
+| Extract table             | [table.py](https://github.com/youngapp/yap-python/blob/develop/examples/table.py)                         |
+| Get entities              | [entities.py](https://github.com/youngapp/yap-python/blob/develop/examples/entities.py)                   |
+| Get dominant language     | [dominant_language.py](https://github.com/youngapp/yap-python/blob/develop/examples/dominant_language.py) |
+| Detect faces              | [detect_faces.py](https://github.com/youngapp/yap-python/blob/develop/examples/detect_faces.py)           |
+| Compare faces             | [compare_faces.py](https://github.com/youngapp/yap-python/blob/develop/examples/compare_faces.py)         |
 
 ## Opening issues
 
