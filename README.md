@@ -2,7 +2,7 @@
 The YAP Python library provides convenient access to the YAP API from applications written in the Python language.
 
 ## Requirements
--   Python 2.7+ or Python 3.6+ (PyPy supported)
+-   Python 2.7+ or Python 3.6+
 
 ## Installing
 
