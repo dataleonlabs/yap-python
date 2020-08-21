@@ -126,7 +126,7 @@ class Yap:
             raise Exception('text argument must be list')
 
         return self.make_request(
-            path='/vision/language-dominant',
+            path='/vision/dominant-language',
             payload={
                 'text': text,
             }
