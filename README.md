@@ -35,14 +35,14 @@ print(response.faces)
 List of examples for quickly start on your project.
 
 | Features                  | File                                                                                                      |
-|---------------------------|-----------------------------------------------------------------------------------------------------------|
-| extract text              | [text.py](https://github.com/youngapp/yap-python/blob/develop/examples/text.py)                           |
-| extract lines             | [line.py](https://github.com/youngapp/yap-python/blob/develop/examples/line.py)                           |
-| extract table             | [table.py](https://github.com/youngapp/yap-python/blob/develop/examples/table.py)                         |
-| get entities              | [entities.py](https://github.com/youngapp/yap-python/blob/develop/examples/entities.py)                   |
-| get dominant language     | [dominant_language.py](https://github.com/youngapp/yap-python/blob/develop/examples/dominant_language.py) |
-| detect faces              | [detect_faces.py](https://github.com/youngapp/yap-python/blob/develop/examples/detect_faces.py)           |
-| compare faces             | [compare_faces.py](https://github.com/youngapp/yap-python/blob/develop/examples/compare_faces.py)         |
+|--------------------------:|-----------------------------------------------------------------------------------------------------------|
+| Extract text              | [text.py](https://github.com/youngapp/yap-python/blob/develop/examples/text.py)                           |
+| Extract lines             | [line.py](https://github.com/youngapp/yap-python/blob/develop/examples/line.py)                           |
+| Extract table             | [table.py](https://github.com/youngapp/yap-python/blob/develop/examples/table.py)                         |
+| Get entities              | [entities.py](https://github.com/youngapp/yap-python/blob/develop/examples/entities.py)                   |
+| Get dominant language     | [dominant_language.py](https://github.com/youngapp/yap-python/blob/develop/examples/dominant_language.py) |
+| Detect faces              | [detect_faces.py](https://github.com/youngapp/yap-python/blob/develop/examples/detect_faces.py)           |
+| Compare faces             | [compare_faces.py](https://github.com/youngapp/yap-python/blob/develop/examples/compare_faces.py)         |
 
 ## Opening issues
 
