@@ -17,8 +17,7 @@ Enjoy 🎉
 ## Usage
 
 The library needs to be configured with your account's secret key which is
-available in your [YAP Dashboard][api-keys]. Set `yap.api_key` to its
-value:
+available in your [YAP Dashboard][api-keys]:
 
 ```python
 from yapsdk import Yap
