@@ -15,7 +15,7 @@
 
 from setuptools import setup, find_packages
 
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -44,7 +44,7 @@ setup(
         "Source Code": "https://github.com/youngapp/yap-python",
     },
     classifiers=[
-        "Development Status :: 5 - Production/Stable",
+        "Development Status :: 1 - Production/Stable",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
@@ -52,10 +52,9 @@ setup(
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
