@@ -28,7 +28,7 @@ jobs:
         echo \n >> .env
         echo ENDPOINT=${{ secrets.ENDPOINT }} >> .env
         pip install -r requirements.txt
-        sudo pip install python-dotenv
+        pip install python-dotenv
         pip install wheel
         pip install -U pytest
         pip install pytest
