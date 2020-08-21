@@ -1,0 +1,52 @@
+name: prod
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: actions/checkout@v1
+    - name: Test
+      run: |
+        pip install -r requirements.txt
+        pytest
+
+    - name: Slack Notification success
+      uses: rtCamp/action-slack-notify@v2.0.2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_USERNAME: SDK Python (dev/success)
+        SLACK_COLOR: '#2eb886'
+        SLACK_ICON: https://youngapp.co/static/favicon.png?v2
+      if: success() # Pick up events even if the job fails or is canceled.
+    - name: Slack Notification failure
+      uses: rtCamp/action-slack-notify@v2.0.2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_USERNAME: SDK Python (dev/failure)
+        SLACK_COLOR: '#de2547'
+        SLACK_ICON: https://youngapp.co/static/favicon.png?v2
+      if: failure() # Pick up events even if the job fails or is canceled.
+    - name: Slack Notification cancelled
+      uses: rtCamp/action-slack-notify@v2.0.2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_USERNAME: SDK Python (dev/canceled)
+        SLACK_COLOR: '#f7d36a'
+        SLACK_ICON: https://youngapp.co/static/favicon.png?v2
+      if: cancelled() # Pick up events even if the job fails or is canceled.
