@@ -54,7 +54,7 @@ print(response)
 #                 [
 #                     {
 #                         "text": "string",
-#         				  "id": "8d2d1dce-5d2d-446f-b241-f7ba8efcdc96",
+#                         "id": "8d2d1dce-5d2d-446f-b241-f7ba8efcdc96",
 #                         "bounding_box": [
 #                             [51, 11],
 #                             [78, 11],
