@@ -24,9 +24,9 @@ jobs:
     - name: Test
       run: |
         touch .env
-        echo ${{ secrets.API_KEY }} >> .env
+        echo API_KEY=${{ secrets.API_KEY }} >> .env
         echo \n >> .env
-        echo ${{ secrets.ENDPOINT }} >> .env
+        echo ENDPOINT=${{ secrets.ENDPOINT }} >> .env
         pip install -r requirements.txt
         pip install python-dotenv
         pip install wheel
