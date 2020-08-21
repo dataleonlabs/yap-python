@@ -22,6 +22,8 @@ import os
 import base64
 
 service = Yap(api_key=os.environ['API_KEY'])
+
+# Add custom endpoint
 # service = Yap(api_key=os.environ['API_KEY'], endpoint=os.environ['ENDPOINT'])
 
 img1 = os.path.abspath('./resources/id-card1.png')
@@ -38,4 +40,35 @@ with open(img2, 'rb') as document:
 response = service.compare_faces(content1=imageBase641, content2=imageBase642)
 
 # print that response
-print(response["faces"])
+print(response)
+# {
+#     "faces": [
+#         {
+#             "age": {
+#                 "low": 23,
+#                 "high": 35
+#             },
+#             "gender": {
+#                 "value": "female",
+#                 "confidence": 99.11945343017578
+#             },
+#             "bounding_box": {
+#                 "width": 0.4544285535812378,
+#                 "height": 0.4926297068595886,
+#                 "left": 0.29225078225135803,
+#                 "top": 0.2607613205909729
+#             },
+#             "landmarks": [
+#                 [0.42053353786468506, 0.47441565990448],
+#                 [0.6223667860031128, 0.47215574979782104],
+#                 [0.4395148754119873, 0.6473249197006226],
+#                 [0.6078771948814392, 0.6452915072441101],
+#                 [0.5231670141220093, 0.5680342316627502],
+#                 [0.3449179530143738, 0.43304699659347534],
+#                 [0.4037591814994812, 0.4133119583129883]
+#             ],
+#             "confidence": 99.9996566772461,
+#             "similarity": 59.9996566772461
+#         }
+#     ]
+# }

@@ -15,6 +15,14 @@
 
 import requests
 import json
+import base64
+
+
+def isBase64(s):
+    try:
+        return base64.b64encode(base64.b64decode(s)) == s
+    except Exception:
+        return False
 
 
 class Yap:
@@ -24,12 +32,31 @@ class Yap:
         self.api_key = api_key
         self.endpoint = endpoint
 
+    ''' Get info '''
     def get_info(self):
         return {
             "api_key": self.api_key,
             "endpoint": self.endpoint
         }
 
+    ''' Set endpoint '''
+    def set_endpoint(self, endpoint):
+        self.endpoint = endpoint
+
+    ''' Set api key '''
+    def set_api_key(self, api_key):
+        self.api_key = api_key
+
+    ''' Get endpoint '''
+    def get_endpoint(self):
+        return self.endpoint
+
+
+    ''' Get api key '''
+    def get_api_key(self):
+        return self.api_key
+
+    ''' Get headers '''
     def get_headers(self):
         return {
             'content-type': "application/json",
@@ -37,7 +64,6 @@ class Yap:
         }
 
     ''' Make request function '''
-
     def make_request(self, path, payload):
         headers = self.get_headers()
         response = requests.request(
@@ -50,8 +76,10 @@ class Yap:
         return json.loads(response.content)
 
     '''Detects text in the input document with base64 image.'''
-
     def get_text(self, content):
+        if isBase64(content) == False:
+            raise Exception('content argument must be base64')
+
         return self.make_request(
             path='/vision/text',
             payload={
@@ -61,6 +89,9 @@ class Yap:
 
     ''' Detects lines in the input document with base64 image.'''
     def get_lines(self, content):
+        if isBase64(content) == False:
+            raise Exception('content argument must be base64')
+
         return self.make_request(
             path='/vision/lines',
             payload={
@@ -70,6 +101,9 @@ class Yap:
 
     ''' Detects tables in the input document with base64 image. '''
     def get_tables(self, content):
+        if isBase64(content) == False:
+            raise Exception('content argument must be base64')
+
         return self.make_request(
             path='/vision/tables',
             payload={
@@ -78,8 +112,13 @@ class Yap:
         )
 
     ''' Inspects text for named entities, and returns information about them. '''
-
     def get_entities(self, text, language=None):
+        if isinstance(text, list) == False:
+            raise Exception('text argument must be list')
+
+        if isinstance(language, str) == False:
+            raise Exception('language argument must be str')
+
         return self.make_request(
             path='/vision/entities',
             payload={
@@ -89,8 +128,10 @@ class Yap:
         )
 
     ''' Determines the dominant language of the input text for a batch of documents. '''
-
     def detect_dominant_language(self, text):
+        if isinstance(text, list) == False:
+            raise Exception('text argument must be list')
+
         return self.make_request(
             path='/vision/language-dominant',
             payload={
@@ -99,18 +140,25 @@ class Yap:
         )
 
     ''' Provide the detect operation that looks for key facial features. '''
-
     def detect_faces(self, content):
+        if isBase64(content) == False:
+            raise Exception('content argument must be base64')
+
         return self.make_request(
-            path='/vision/face-recognition',
+            path='/vision/face-detection',
             payload={
                 'content': content.decode(),
             }
         )
 
     ''' To compare a face in the source image with each face in the target image.'''
-
     def compare_faces(self, content1, content2):
+        if isBase64(content1) == False:
+            raise Exception('content1 argument must be base64')
+
+        if isBase64(content2) == False:
+            raise Exception('content2 argument must be base64')
+
         return self.make_request(
             path='/vision/face-compare',
             payload={

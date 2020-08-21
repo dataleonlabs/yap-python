@@ -22,6 +22,8 @@ import os
 import base64
 
 service = Yap(api_key=os.environ['API_KEY'])
+
+# Add custom endpoint
 # service = Yap(api_key=os.environ['API_KEY'], endpoint=os.environ['ENDPOINT'])
 
 img = os.path.abspath('./resources/invoice-template.png')
@@ -33,5 +35,19 @@ with open(img, 'rb') as document:
 response = service.get_text(content=imageBase64)
 
 # print that response
-print(response["blocks"])
-# print(response["fulltext"])
+print(response)
+# {
+#     "blocks": [
+#         {
+#             "text": "string",
+#             "id": "8d2d1dce-5d2d-446f-b241-f7ba8efcdc96",
+#             "bounding_box": [
+#                 [51, 11],
+#                 [78, 11],
+#                 [78, 19],
+#                 [51, 19]
+#             ]
+#         },
+#     ],
+#     "fulltext": "string"
+# }

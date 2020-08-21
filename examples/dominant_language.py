@@ -21,6 +21,8 @@ import os
 load_dotenv()
 
 service = Yap(api_key=os.environ['API_KEY'])
+
+# Add custom endpoint
 # service = Yap(api_key=os.environ['API_KEY'], endpoint=os.environ['ENDPOINT'])
 
 response = service.detect_dominant_language(
@@ -28,4 +30,17 @@ response = service.detect_dominant_language(
 )
 
 # print that response
-print(response.result[0].lagnguges)
+print(response)
+# {
+#     "result": [
+#         {
+#             "index": 1,
+#             "languages": [
+#                 {
+#                     "confidence": 0.4,
+#                     "code": "string"
+#                 }
+#             ]
+#         }
+#     ]
+# }

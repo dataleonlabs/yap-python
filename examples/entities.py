@@ -21,6 +21,8 @@ import os
 load_dotenv()
 
 service = Yap(api_key=os.environ['API_KEY'])
+
+# Add custom endpoint
 # service = Yap(api_key=os.environ['API_KEY'], endpoint=os.environ['ENDPOINT'])
 
 response = service.get_entities(
@@ -35,4 +37,20 @@ response = service.get_entities(
 
 
 # print that response
-print(response.result[0].entities)
+print(response)
+# {
+#     "result": [
+#         {
+#             "index": 1,
+#             "entities": [
+#                 {
+#                     "confidence": 0.4,
+#                     "type": "string",
+#                     "text": "string",
+#                     "begin_offset": 123,
+#                     "end_offset": 123
+#                 }
+#             ]
+#         }
+#     ]
+# }
