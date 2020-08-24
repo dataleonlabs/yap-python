@@ -34,6 +34,9 @@ with open(img, 'rb') as document:
 
 response = service.get_lines(content=imageBase64)
 
+# Update precision
+# response = service.get_lines(content=imageBase64, precision=1.25)
+
 # print that response
 print(response)
 # {

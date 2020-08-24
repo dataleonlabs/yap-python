@@ -81,13 +81,14 @@ class Yap:
         )
 
     ''' Detects lines in the input document with base64 image.'''
-    def get_lines(self, content):
+    def get_lines(self, content, precision=1):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
             path='/vision/lines',
             payload={
+                'precision': precision,
                 'content': content.decode(),
             }
         )
