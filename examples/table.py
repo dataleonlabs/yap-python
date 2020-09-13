@@ -39,7 +39,7 @@ print(response)
 # {
 #     "tables": [
 #         {
-#             "text": [
+#             "fulltext": [
 #                 ["string", "string"],
 #                 ["string", "string"]
 #             ],
@@ -66,5 +66,6 @@ print(response)
 #             ],
 #         },
 #     ],
-#     "fulltext": "string"
+#     "width": 340,
+#     "height": 890
 # }
