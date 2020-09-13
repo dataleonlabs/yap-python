@@ -25,8 +25,8 @@ import base64
 '''Extract content text'''
 def test_extract_text():
     service = Yap(
-        api_key=os.environ['API_KEY'],
-        endpoint=os.environ['ENDPOINT']
+        api_key="apkey_90CqY-btPlMNIUUD3aDt2jz9x4FXpVi/793hx",
+        endpoint="https://1pa1kqb479.execute-api.eu-west-3.amazonaws.com/dev"
     )
 
     img = os.path.abspath(
@@ -38,4 +38,5 @@ def test_extract_text():
         imageBase64 = base64.b64encode(document.read())
 
     response = service.get_text(content=imageBase64)
+    print(response["fulltext"])
     assert ("INVOICE" in response["fulltext"]) == True

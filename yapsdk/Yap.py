@@ -160,3 +160,20 @@ class Yap:
                 'content2': content2.decode(),
             }
         )
+
+    ''' Inspects text for named entities, and returns information about them based on CSV file. '''
+
+    def get_generic_entities(self, blocks, configurator):
+        if isinstance(blocks, list) == False:
+            raise Exception('blocks argument must be list')
+
+        if isinstance(configurator, str) == False:
+            raise Exception('configurator argument must be str')
+
+        return self.make_request(
+            path='/vision/generic-entities',
+            payload={
+                'blocks': blocks,
+                'configurator': configurator,
+            }
+        )
