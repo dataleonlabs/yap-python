@@ -57,15 +57,17 @@ class Yap:
         }
 
     ''' Make request function '''
-    def make_request(self, path, payload):
+    def make_request(self, path, payload=None, method="POST"):
         headers = self.get_headers()
         response = requests.request(
-            method='POST',
+            method=method,
             url="{0}{1}".format(self.endpoint, path),
             json=payload,
             timeout=30,
             headers=headers
         )
+
+        print(response.content, "{0}{1}".format(self.endpoint, path))
         return json.loads(response.content)
 
     '''Detects text in the input document with base64 image.'''
@@ -173,4 +175,77 @@ class Yap:
                 'blocks': blocks,
                 'configurator': configurator,
             }
+        )
+
+    ''' Detects entities in the input document with base64 image. '''
+    def get_document_entities(self, type_doc, content):
+        if isBase64(content) == False:
+            raise Exception('content argument must be base64')
+
+        if isinstance(type_doc, str) == False:
+            raise Exception('doc type argument must be str')
+
+        return self.make_request(
+            path='/documents/{0}'.format(type_doc),
+            payload={
+                'content': content.decode(),
+            }
+        )
+
+    ''' Detects entities in the input document with base64 image. '''
+    def get_document_info(self, content):
+        if isBase64(content) == False:
+            raise Exception('content argument must be base64')
+
+        return self.make_request(
+            path='/document-info',
+            payload={
+                'content': content.decode(),
+            }
+        )
+
+    def get_company_info(self, value):
+        if (isinstance(value, str) == False) and (isinstance(value, int) == False):
+            raise Exception('value argument must be str')
+        return self.make_request(
+            method='GET',
+            path='/assets/companies/fr/{0}'.format(value),
+        )
+
+    def get_iban_info(self, value):
+        if isinstance(value, str) == False:
+            raise Exception('value argument must be str')
+        return self.make_request(
+            method='GET',
+            path='/validate/iban?iban={0}'.format(value),
+        )
+
+    def get_vat_info(self, value):
+        if isinstance(value, str) == False:
+            raise Exception('value argument must be str')
+        return self.make_request(
+            method='GET',
+            path='/validate/vat?vat={0}'.format(value),
+        )
+
+    def check_email(self, value):
+        if isinstance(value, str) == False:
+            raise Exception('value argument must be str')
+        return self.make_request(
+            method='GET',
+            path='/validate/email?email={0}'.format(value),
+        )
+
+    def check_phone(self, value):
+        if isinstance(value, str) == False:
+            raise Exception('value argument must be str')
+        return self.make_request(
+            method='GET',
+            path='/validate/phone?phone={0}'.format(value),
+        )
+
+    def get_countries(self):
+        return self.make_request(
+            method='GET',
+            path='/assets/countries',
         )
