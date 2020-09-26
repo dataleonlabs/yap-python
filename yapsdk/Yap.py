@@ -67,7 +67,6 @@ class Yap:
             headers=headers
         )
 
-        print(response.content, "{0}{1}".format(self.endpoint, path))
         return json.loads(response.content)
 
     '''Detects text in the input document with base64 image.'''
