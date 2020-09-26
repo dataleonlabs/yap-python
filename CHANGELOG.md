@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/youngapp/yap-python/compare/v1.1.0...v1.6.0) (2020-09-26)
+
+
+### Features
+
+* add get_generic_entities func ([48568b2](https://github.com/youngapp/yap-python/commit/48568b2bc0fd58eaf4462c7925ba16221b595be5))
+* add precision on get lines ([27e6ac1](https://github.com/youngapp/yap-python/commit/27e6ac1dc546096cf1330bce1d206e7f991fd9e5))
+* update code data ([1ed429b](https://github.com/youngapp/yap-python/commit/1ed429b4b4aacefd13f34d67dc5ada55a9474244))
+* update documentation ([52a1fb4](https://github.com/youngapp/yap-python/commit/52a1fb459cc2518b9a6d6c6cec1ae64fdbf02ab0))
+* update examples indent ([77a8d53](https://github.com/youngapp/yap-python/commit/77a8d53be041d38072c1363307b127660568ff41))
+* update package security ([2fcf52f](https://github.com/youngapp/yap-python/commit/2fcf52fdfc498cc4f83868d40ed4d31d6da34a65))
+* update task ([804871a](https://github.com/youngapp/yap-python/commit/804871a05cd5bd22042b334d66778fe7219e89d0))
+
 ## 1.1.0 (2020-08-21)
 
 
