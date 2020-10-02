@@ -70,44 +70,51 @@ class Yap:
         return json.loads(response.content)
 
     '''Detects text in the input document with base64 image.'''
-    def get_text(self, content):
+
+    def get_text(self, content, version='v1'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
             path='/vision/text',
             payload={
+                'version': version,
                 'content': content.decode(),
             }
         )
 
     ''' Detects lines in the input document with base64 image.'''
-    def get_lines(self, content, precision=1):
+
+    def get_lines(self, content, precision=1, version='v1'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
             path='/vision/lines',
             payload={
+                'version': version,
                 'precision': precision,
                 'content': content.decode(),
             }
         )
 
     ''' Detects tables in the input document with base64 image. '''
-    def get_tables(self, content):
+
+    def get_tables(self, content, version='v1'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
             path='/vision/tables',
             payload={
+                'version': version,
                 'content': content.decode(),
             }
         )
 
     ''' Inspects text for named entities, and returns information about them. '''
-    def get_entities(self, text, language=None):
+
+    def get_entities(self, text, language=None, version='v1'):
         if isinstance(text, list) == False:
             raise Exception('text argument must be list')
 
@@ -117,37 +124,43 @@ class Yap:
         return self.make_request(
             path='/vision/entities',
             payload={
+                'version': version,
                 'text': text,
                 'language': language,
             }
         )
 
     ''' Determines the dominant language of the input text for a batch of documents. '''
-    def detect_dominant_language(self, text):
+
+    def detect_dominant_language(self, text, version='v1'):
         if isinstance(text, list) == False:
             raise Exception('text argument must be list')
 
         return self.make_request(
             path='/vision/dominant-language',
             payload={
+                'version': version,
                 'text': text,
             }
         )
 
     ''' Provide the detect operation that looks for key facial features. '''
-    def detect_faces(self, content):
+
+    def detect_faces(self, content, version='v1'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
             path='/vision/face-detection',
             payload={
+                'version': version,
                 'content': content.decode(),
             }
         )
 
     ''' To compare a face in the source image with each face in the target image.'''
-    def compare_faces(self, content1, content2):
+
+    def compare_faces(self, content1, content2, version='v1'):
         if isBase64(content1) == False:
             raise Exception('content1 argument must be base64')
 
@@ -157,6 +170,7 @@ class Yap:
         return self.make_request(
             path='/vision/face-compare',
             payload={
+                'version': version,
                 'content1': content1.decode(),
                 'content2': content2.decode(),
             }
@@ -164,20 +178,22 @@ class Yap:
 
     ''' Inspects text for named entities, and returns information about them based on CSV file. '''
 
-    def get_generic_entities(self, blocks, configurator):
+    def get_generic_entities(self, blocks, configurator, version='v1'):
         if isinstance(configurator, str) == False:
             raise Exception('configurator argument must be str')
 
         return self.make_request(
             path='/vision/generic-entities',
             payload={
+                'version': version,
                 'blocks': blocks,
                 'configurator': configurator,
             }
         )
 
     ''' Detects entities in the input document with base64 image. '''
-    def get_document_entities(self, type_doc, content):
+
+    def get_document_entities(self, type_doc, content, version='v1'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
@@ -187,18 +203,21 @@ class Yap:
         return self.make_request(
             path='/documents/{0}'.format(type_doc),
             payload={
+                'version': version,
                 'content': content.decode(),
             }
         )
 
     ''' Detects entities in the input document with base64 image. '''
-    def get_document_info(self, content):
+
+    def get_document_info(self, content, version='v1'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
             path='/document-info',
             payload={
+                'version': version,
                 'content': content.decode(),
             }
         )
