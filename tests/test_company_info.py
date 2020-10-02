@@ -25,8 +25,8 @@ import base64
 '''Extract content text'''
 def test_extract_text():
     service = Yap(
-        api_key="apkey_90CqY-btPlMNIUUD3aDt2jz9x4FXpVi/793hx",
-        endpoint="https://1pa1kqb479.execute-api.eu-west-3.amazonaws.com/dev"
+        api_key=os.environ.get('API_KEY'),
+        endpoint=os.environ.get('ENDPOINT')
     )
     response = service.get_company_info(value=820897585)
     assert ("82089758500031" in response["siret"]) == True
