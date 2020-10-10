@@ -1,6 +1,6 @@
 {
     "name": "yap-python",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "description": "Young App Python SDK",
     "parameters": "index.js",
     "scripts": {

@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/youngapp/yap-python/compare/v1.6.0...v1.7.0) (2020-10-10)
+
+
+### Features
+
+* add version ([866e9aa](https://github.com/youngapp/yap-python/commit/866e9aa66ca2f7cdb74ef174f5a7205ba43fb9c5))
+* add versionning on url ([df225f1](https://github.com/youngapp/yap-python/commit/df225f1a3f002bca44f6d7a5cfd2cf303a207f4b))
+
+
+### Bug Fixes
+
+* print ([d8edfae](https://github.com/youngapp/yap-python/commit/d8edfaec01104b07d74d53ced2dd1065d673314b))
+
 ## [1.6.0](https://github.com/youngapp/yap-python/compare/v1.1.0...v1.6.0) (2020-09-26)
 
 
