@@ -71,28 +71,26 @@ class Yap:
 
     '''Detects text in the input document with base64 image.'''
 
-    def get_text(self, content, version='v1'):
+    def get_text(self, content, version='lastest'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
-            path='/vision/text',
+            path='/{0}/vision/text'.format(version),
             payload={
-                'version': version,
                 'content': content.decode(),
             }
         )
 
     ''' Detects lines in the input document with base64 image.'''
 
-    def get_lines(self, content, precision=1, version='v1'):
+    def get_lines(self, content, precision=1, version='lastest'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
-            path='/vision/lines',
+            path='/{0}/vision/lines'.format(version),
             payload={
-                'version': version,
                 'precision': precision,
                 'content': content.decode(),
             }
@@ -100,21 +98,20 @@ class Yap:
 
     ''' Detects tables in the input document with base64 image. '''
 
-    def get_tables(self, content, version='v1'):
+    def get_tables(self, content, version='lastest'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
-            path='/vision/tables',
+            path='/{0}/vision/tables'.format(version),
             payload={
-                'version': version,
                 'content': content.decode(),
             }
         )
 
     ''' Inspects text for named entities, and returns information about them. '''
 
-    def get_entities(self, text, language=None, version='v1'):
+    def get_entities(self, text, language=None, version='lastest'):
         if isinstance(text, list) == False:
             raise Exception('text argument must be list')
 
@@ -122,9 +119,8 @@ class Yap:
             raise Exception('language argument must be str')
 
         return self.make_request(
-            path='/vision/entities',
+            path='/{0}/vision/entities'.format(version),
             payload={
-                'version': version,
                 'text': text,
                 'language': language,
             }
@@ -132,35 +128,33 @@ class Yap:
 
     ''' Determines the dominant language of the input text for a batch of documents. '''
 
-    def detect_dominant_language(self, text, version='v1'):
+    def detect_dominant_language(self, text, version='lastest'):
         if isinstance(text, list) == False:
             raise Exception('text argument must be list')
 
         return self.make_request(
-            path='/vision/dominant-language',
+            path='/{0}/vision/dominant-language'.format(version),
             payload={
-                'version': version,
                 'text': text,
             }
         )
 
     ''' Provide the detect operation that looks for key facial features. '''
 
-    def detect_faces(self, content, version='v1'):
+    def detect_faces(self, content, version='lastest'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
-            path='/vision/face-detection',
+            path='/{0}/vision/face-detection'.format(version),
             payload={
-                'version': version,
                 'content': content.decode(),
             }
         )
 
     ''' To compare a face in the source image with each face in the target image.'''
 
-    def compare_faces(self, content1, content2, version='v1'):
+    def compare_faces(self, content1, content2, version='lastest'):
         if isBase64(content1) == False:
             raise Exception('content1 argument must be base64')
 
@@ -168,9 +162,8 @@ class Yap:
             raise Exception('content2 argument must be base64')
 
         return self.make_request(
-            path='/vision/face-compare',
+            path='/{0}/vision/face-compare'.format(version),
             payload={
-                'version': version,
                 'content1': content1.decode(),
                 'content2': content2.decode(),
             }
@@ -178,14 +171,13 @@ class Yap:
 
     ''' Inspects text for named entities, and returns information about them based on CSV file. '''
 
-    def get_generic_entities(self, blocks, configurator, version='v1'):
+    def get_generic_entities(self, blocks, configurator, version='lastest'):
         if isinstance(configurator, str) == False:
             raise Exception('configurator argument must be str')
 
         return self.make_request(
-            path='/vision/generic-entities',
+            path='/{0}/vision/generic-entities'.format(version),
             payload={
-                'version': version,
                 'blocks': blocks,
                 'configurator': configurator,
             }
@@ -193,7 +185,7 @@ class Yap:
 
     ''' Detects entities in the input document with base64 image. '''
 
-    def get_document_entities(self, type_doc, content, version='v1'):
+    def get_document_entities(self, type_doc, content, version='lastest'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
@@ -201,23 +193,21 @@ class Yap:
             raise Exception('doc type argument must be str')
 
         return self.make_request(
-            path='/documents/{0}'.format(type_doc),
+            path='/{0}/documents/{1}'.format(version, type_doc),
             payload={
-                'version': version,
                 'content': content.decode(),
             }
         )
 
     ''' Detects entities in the input document with base64 image. '''
 
-    def get_document_info(self, content, version='v1'):
+    def get_document_info(self, content, version='lastest'):
         if isBase64(content) == False:
             raise Exception('content argument must be base64')
 
         return self.make_request(
-            path='/document-info',
+            path='/{0}/document-info'.format(version),
             payload={
-                'version': version,
                 'content': content.decode(),
             }
         )
@@ -227,7 +217,7 @@ class Yap:
             raise Exception('value argument must be str')
         return self.make_request(
             method='GET',
-            path='/assets/companies/fr/{0}'.format(value),
+            path='/v1/assets/companies/fr/{0}'.format(value),
         )
 
     def get_iban_info(self, value):
@@ -235,7 +225,7 @@ class Yap:
             raise Exception('value argument must be str')
         return self.make_request(
             method='GET',
-            path='/validate/iban?iban={0}'.format(value),
+            path='/v1/validate/iban?iban={0}'.format(value),
         )
 
     def get_vat_info(self, value):
@@ -243,7 +233,7 @@ class Yap:
             raise Exception('value argument must be str')
         return self.make_request(
             method='GET',
-            path='/validate/vat?vat={0}'.format(value),
+            path='/v1/validate/vat?vat={0}'.format(value),
         )
 
     def check_email(self, value):
@@ -251,7 +241,7 @@ class Yap:
             raise Exception('value argument must be str')
         return self.make_request(
             method='GET',
-            path='/validate/email?email={0}'.format(value),
+            path='/v1/validate/email?email={0}'.format(value),
         )
 
     def check_phone(self, value):
@@ -259,11 +249,11 @@ class Yap:
             raise Exception('value argument must be str')
         return self.make_request(
             method='GET',
-            path='/validate/phone?phone={0}'.format(value),
+            path='/v1/validate/phone?phone={0}'.format(value),
         )
 
     def get_countries(self):
         return self.make_request(
             method='GET',
-            path='/assets/countries',
+            path='/v1/assets/countries',
         )
